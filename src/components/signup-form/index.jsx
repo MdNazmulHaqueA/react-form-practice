@@ -12,6 +12,7 @@ export class SignupForm extends Component {
    state = {
       values: initialValues,
       agreement: false,
+      errors: {},
    };
 
    handleChange = event => {
@@ -31,9 +32,55 @@ export class SignupForm extends Component {
 
    handleSubmit = event => {
       event.preventDefault();
-      console.log(this.state.values);
-      event.target.reset();
-      this.setState({ values: initialValues, agreement: false });
+      // console.log(this.state.values);
+      // event.target.reset();
+      // this.setState({ values: initialValues, agreement: false });
+      const { errors, isValid } = this.validate();
+      if (isValid) {
+         console.log(this.state.values);
+         event.target.reset();
+         this.setState({ values: initialValues, agreement: false });
+      } else {
+         // console.log(errors);
+         this.setState({ errors });
+      }
+   };
+
+   // validation basic
+
+   validate = () => {
+      const errors = {};
+      const {
+         values: { name, email, password, gender, birthDate },
+      } = this.state;
+
+      if (!name) {
+         errors.name = 'Please Provide Your Name';
+      } else if (name.length > 30) {
+         errors.name = 'Name must be between 5 to 30 characters';
+      }
+
+      if (!email) {
+         errors.email = 'Please provide your email';
+      }
+
+      if (!password) {
+         errors.password = 'Please provide password';
+      }
+
+      if (!birthDate) {
+         errors.birthDate = 'Birth of date missing';
+      }
+
+      if (!gender) {
+         errors.gender = 'Please select your gender';
+      }
+
+      return {
+         // errors:errors
+         errors,
+         isValid: Object.keys(errors).length === 0,
+      };
    };
 
    render() {
@@ -47,6 +94,7 @@ export class SignupForm extends Component {
                   handleChange={this.handleChange}
                   handleAgreement={this.handleAgreement}
                   handleSubmit={this.handleSubmit}
+                  errors={this.state.errors}
                />
             </div>
          </div>

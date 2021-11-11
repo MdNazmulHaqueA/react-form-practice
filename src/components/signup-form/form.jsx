@@ -8,6 +8,7 @@ const Form = ({
    handleChange,
    handleAgreement,
    handleSubmit,
+   errors,
 }) => (
    <form onSubmit={handleSubmit}>
       <TextInput
@@ -15,6 +16,7 @@ const Form = ({
          label="Name"
          placeholder="Md Nazmul Haque"
          value={values.name}
+         error={errors.name}
          onChange={handleChange}
       />
       <TextInput
@@ -23,6 +25,7 @@ const Form = ({
          label="Email"
          placeholder="test@gmail.com"
          value={values.email}
+         error={errors.email}
          onChange={handleChange}
       />
       <TextInput
@@ -31,6 +34,7 @@ const Form = ({
          label="Password"
          placeholder="*******"
          value={values.password}
+         error={errors.password}
          onChange={handleChange}
       />
       <TextInput
@@ -38,6 +42,7 @@ const Form = ({
          type="date"
          label="Birth Date"
          value={values.birthDate}
+         error={errors.birthDate}
          onChange={handleChange}
       />
       <div className="form-group">
@@ -71,6 +76,9 @@ const Form = ({
             />
             Other
          </label>
+         {errors.gender && (
+            <div className="invalid-feedback">{errors.gender}</div>
+         )}
       </div>
       <div className="form-group">
          <label>
@@ -96,6 +104,7 @@ Form.prototype = {
    handleChange: PropTypes.func.isRequired,
    handleAgreement: PropTypes.func.isRequired,
    handleSubmit: PropTypes.func.isRequired,
+   errors: PropTypes.object.isRequired,
 };
 
 export default Form;
