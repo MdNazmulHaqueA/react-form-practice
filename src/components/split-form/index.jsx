@@ -16,6 +16,7 @@ class SplitForm extends Component {
 
    handleSubmit = event => {
       event.preventDefault();
+      console.log(this.state);
       this.setState({ name: '', email: '', password: '' });
       event.target.reset();
    };

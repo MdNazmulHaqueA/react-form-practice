@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import SplitForm from './components/split-form';
+import SignupForm from './components/signup-form';
+// import SplitForm from './components/split-form';
 // import UncontrolledForm from './componets/forms/UncontrolledForm';
 // import ControlledForm from './components/forms/ControlledForm';
 // import Inputs from './components/Inputs/Inputs';
@@ -14,7 +15,8 @@ function App() {
          {/* <Inputs /> */}
          {/* <UncontrolledForm /> */}
          {/* <ControlledForm /> */}
-         <SplitForm />
+         {/* <SplitForm /> */}
+         <SignupForm />
       </div>
    );
 }
