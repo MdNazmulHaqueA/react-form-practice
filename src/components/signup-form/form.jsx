@@ -45,7 +45,7 @@ const Form = ({
          error={errors.birthDate}
          onChange={handleChange}
       />
-      <div className="form-group">
+      <div className={errors.gender ? 'form-control is-invalid' : 'form-group'}>
          <label className="me-4">
             <input
                className="form-group me-2"
@@ -76,6 +76,7 @@ const Form = ({
             />
             Other
          </label>
+
          {errors.gender && (
             <div className="invalid-feedback">{errors.gender}</div>
          )}
