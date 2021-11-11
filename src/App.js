@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
+import SplitForm from './components/split-form';
 // import UncontrolledForm from './componets/forms/UncontrolledForm';
-import ControlledForm from './components/forms/ControlledForm';
-import Inputs from './components/Inputs/Inputs';
+// import ControlledForm from './components/forms/ControlledForm';
+// import Inputs from './components/Inputs/Inputs';
 
 function App() {
    return (
@@ -10,9 +11,10 @@ function App() {
          <h1 className="mt-3 text-center">Practice Forms in React</h1>
          <hr />
          <br />
-         <Inputs />
+         {/* <Inputs /> */}
          {/* <UncontrolledForm /> */}
-         <ControlledForm />
+         {/* <ControlledForm /> */}
+         <SplitForm />
       </div>
    );
 }

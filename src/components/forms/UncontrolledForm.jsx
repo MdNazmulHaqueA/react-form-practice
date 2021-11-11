@@ -8,7 +8,7 @@ class UncontrolledForm extends Component {
       data.name = event.target.name.value;
       data.email = event.target.email.value;
       data.password = event.target.password.value;
-      console.log(data);
+      // console.log(data);
       event.target.reset();
    };
    render() {
